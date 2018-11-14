@@ -12,12 +12,21 @@
 #define COL 19
 
 int rowConfig[ROW][COL];
-void setRow(int *row, int *newRow);
-struct celda setBoard(struct celda** board);
-struct celda setDots(struct celda** board);
 
+
+void setRow(int *row, int *newRow);
+
+struct celda** setBoard(struct celda** board);
+
+struct celda** setDots(struct celda** board);
+
+struct celda** setSuperDot(struct celda** board);
+
+struct celda** setFruit(struct celda** board);
 
 struct state game_core();
+
+void move_player(struct state* game, char dir);
 
 struct player{
     int row, col;
@@ -40,8 +49,9 @@ struct celda{
 
 struct state{
     struct player player1;
-    struct alien fantasmas;
+    struct alien* fantasmas;
     struct celda** board;
+    int score, win;
 };
 
 #endif //PACE_MAN_GAME_H

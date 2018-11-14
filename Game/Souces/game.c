@@ -2,7 +2,7 @@
 // Created by nicko on 12/11/18.
 //
 
-#include "game.h"
+#include "../Headers/game.h"
 
 int rowConfig[ROW][COL]  = {
 /* 0  */        {19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -40,11 +40,11 @@ void setRow (int row[], int *newRow) {
             while (i != COL){
                 if (x != 0) {
                     if (flag == -1) {
-                        *(newRow+i) = 1;
+                        *(newRow+i) = 0;
                         x-=1;
                         i+=1;
                     } else {
-                        *(newRow+i) = 0;
+                        *(newRow+i) = 1;
                         x-=1;
                         i+=1;
                     }
@@ -57,7 +57,10 @@ void setRow (int row[], int *newRow) {
     }
 }
 
-struct celda setBoard(struct celda** board) {
+/*
+ * Da forma al tablero apartir de la matriz
+ */
+struct celda** setBoard(struct celda** board) {
     int *newRow = malloc(19*sizeof(int));
 
     for (int k = 0; k < ROW; ++k) {
@@ -66,37 +69,104 @@ struct celda setBoard(struct celda** board) {
             board[k][i].available = *(newRow+i);
         }
     }
+    return board;
 }
 
-struct celda setDots(struct celda** board) {
+/*
+ * setea los dots en cada celda
+ */
+struct celda** setDots(struct celda** board) {
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
             if (!(board[i][j].available)) {
                 if ((i == 9 && (j == 8 || j == 9 || j == 10))||(i == 11 && j == 9)){
-                    board[i][j].dot = 1;
-                } else {
                     board[i][j].dot = 0;
+                } else {
+                    board[i][j].dot = 1;
                 }
             } else {
                 board[i][j].dot = 0;
             }
         }
     }
+    return board;
+}
+
+/*
+ * setean los super dots por default no hay ninguno
+ */
+struct celda** setSuperDot(struct celda** board) {
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            board[i][j].superDot = 0;
+        }
+    }
+    return board;
+}
+
+/*
+ * setea la fruta que de igual forma es 0
+ */
+struct celda** setFruit(struct celda** board) {
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            board[i][j].superDot = 0;
+        }
+    }
+    return board;
 }
 
 struct state game_core(){
-
+ /*
+  * seteando el tablero
+  */
     struct celda** board = (struct celda**) malloc(ROW * sizeof(struct celda*));
     for (int i = 0; i < ROW; ++i) {
         *(board+i) = (struct celda*) malloc(COL * sizeof(struct celda));
     }
+
     setBoard(board);
     setDots(board);
+    setSuperDot(board);
+    setFruit(board);
 
+/*
+ * seteo del jugador
+ */
 
+    struct player player1;
+    player1.row = 15;
+    player1.col = 9;
+    player1.vidas = 3;
+
+/*
+ * seteo de los aliens
+ */
+
+    struct alien* aliens = (struct alien*)malloc(3 * sizeof(struct alien));
+    for (int j = 0; j < 3; ++j) {
+        aliens[j].row = 9;
+        aliens[j].col = 8 + j;
+        aliens[j].state = 0;
+        aliens[j].vivo = 1;
+        aliens[j].velocidad = 1;
+
+    }
+
+/*
+ * encapsulamiento de todo el estado del juego
+ */
     struct state actual_state;
 
     actual_state.board = board;
+    actual_state.player1 = player1;
+    actual_state.fantasmas = aliens;
+    actual_state.score = 0;
+    actual_state.win = 0;
 
     return  actual_state;
+}
+
+void move_player(struct state* game, char dir) {
+
 }
