@@ -120,46 +120,38 @@ void* socketHandler(void* lp){
 }
 
 char* analyze_msg(char* msg){
-//    cJSON* root = cJSON_Parse(msg);
-//    cJSON* respuesta = NULL;
-//    char* respuesta_STRING;
-//
-//    char* message_type = cJSON_GetObjectItem(root, "message_type")->valuestring;
-//
-//    if (strcmp(message_type, "get_update") == 0){
-//        update_game(&game);
-//        respuesta = game_state(&game);
-//        respuesta_STRING = cJSON_Print(respuesta);
-//        return respuesta_STRING;
-//    }
-//
-//    if (strcmp(message_type, "player_move") == 0){
-//        char* move = cJSON_GetObjectItem(root, "move")->valuestring;
-//        update_player(&game, move);
-//        respuesta = game_state(&game);
-//        respuesta_STRING = cJSON_Print(respuesta);
-//        return respuesta_STRING;
-//    }
-//
-//    if (strcmp(message_type, "begin_game") == 0){
-//        game = game_core();
-//        respuesta = game_state(&game);
-//        respuesta_STRING = cJSON_Print(respuesta);
-//        return respuesta_STRING;
-//    }
-//
-//    if (strcmp(message_type, "player_shoot") == 0){
-//        update_shoot(&game);
-//        respuesta = game_state(&game);
-//        respuesta_STRING = cJSON_Print(respuesta);
-//        return respuesta_STRING;
-//    }
-//
-//    if (strcmp(message_type, "watch_game") == 0){
-//        update_game(&game);
-//        respuesta = game_state(&game);
-//        respuesta_STRING = cJSON_Print(respuesta);
-//        return respuesta_STRING;
-//    }
+    cJSON* root = cJSON_Parse(msg);
+    cJSON* respuesta = NULL;
+    char* respuesta_STRING;
 
+    char* message_type = cJSON_GetObjectItem(root, "message_type")->valuestring;
+
+    if (strcmp(message_type, "get_update") == 0){
+        update_game(&game);
+        respuesta = game_state(&game);
+        respuesta_STRING = cJSON_Print(respuesta);
+        return respuesta_STRING;
+    }
+
+    if (strcmp(message_type, "player_move") == 0){
+        char* move = cJSON_GetObjectItem(root, "move")->valuestring;
+        update_player(&game, move);
+        respuesta = game_state(&game);
+        respuesta_STRING = cJSON_Print(respuesta);
+        return respuesta_STRING;
+    }
+
+    if (strcmp(message_type, "begin_game") == 0){
+        game = game_core();
+        respuesta = game_state(&game);
+        respuesta_STRING = cJSON_Print(respuesta);
+        return respuesta_STRING;
+    }
+
+    if (strcmp(message_type, "watch_game") == 0){
+        update_game(&game);
+        respuesta = game_state(&game);
+        respuesta_STRING = cJSON_Print(respuesta);
+        return respuesta_STRING;
+    }
 }

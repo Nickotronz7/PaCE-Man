@@ -3,6 +3,7 @@
 //
 
 #include "../Headers/game.h"
+int enemigos = 3;
 
 int rowConfig[ROW][COL]  = {
 /* 0  */        {19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -142,9 +143,8 @@ struct state game_core(){
 /*
  * seteo de los aliens
  */
-
-    struct alien* aliens = (struct alien*)malloc(3 * sizeof(struct alien));
-    for (int j = 0; j < 3; ++j) {
+    struct alien* aliens = (struct alien*)malloc(enemigos * sizeof(struct alien));
+    for (int j = 0; j < enemigos; ++j) {
         aliens[j].row = 9;
         aliens[j].col = 8 + j;
         aliens[j].state = 0;
@@ -169,4 +169,57 @@ struct state game_core(){
 
 void move_player(struct state* game, char dir) {
 
+    switch (dir) {
+        case 'u': {
+            if ((*game).board[(*game).player1.row-1][(*game).player1.col].available) {
+                (*game).player1.row -= 1;
+            } else {
+                printf("movimiento invalido\n");
+            }
+            break;
+        }
+        case 'd': {
+            if ((*game).board[(*game).player1.row+1][(*game).player1.col].available) {
+                (*game).player1.row += 1;
+            } else {
+                printf("movimiento invalido\n");
+            }
+            break;
+        }
+        case 'r': {
+            if ((*game).board[(*game).player1.row][(*game).player1.col+1].available) {
+                (*game).player1.col += 1;
+            } else {
+                printf("movimiento invalido\n");
+            }
+            break;
+        }
+        case 'l': {
+            if ((*game).board[(*game).player1.row][(*game).player1.col-1].available) {
+                (*game).player1.col -= 1;
+            } else {
+                printf("movimiento invalido\n");
+            }
+            break;
+        }
+        default:
+            printf("no move done");
+            break;
+    }
+}
+
+void update_player(struct state* game, char dir) {
+    move_ghost(game);
+    move_player(game, dir);
+    /*
+     * falta algo mas de meter xD
+     */
+}
+
+void update_game(struct state* game) {
+    move_ghost(game);
+}
+
+void move_ghost(struct state* game) {
+    printf("fantasma movido\n");
 }

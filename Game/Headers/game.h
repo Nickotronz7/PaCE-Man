@@ -11,6 +11,8 @@
 #define ROW 21
 #define COL 19
 
+extern int enemigos;
+
 int rowConfig[ROW][COL];
 
 
@@ -27,6 +29,13 @@ struct celda** setFruit(struct celda** board);
 struct state game_core();
 
 void move_player(struct state* game, char dir);
+
+void move_ghost(struct state* game);
+
+void update_game(struct state* game);
+
+void update_player(struct state* game, char dir);
+
 
 struct player{
     int row, col;
