@@ -1,6 +1,9 @@
-#include <stdio.h>
+#include "Game/game.h"
+
+
 
 int main() {
-    printf("Hello, World!\n");
+
+
     return 0;
 }
