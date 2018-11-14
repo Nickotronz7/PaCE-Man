@@ -77,7 +77,7 @@ void* socketHandler(void* lp){
     int *csock = (int*)lp;
 
     int buffer_len = 1024;
-    int respuesta_len = 7602;
+    int respuesta_len = 21737;
     char respuesta[respuesta_len];
     char buffer[buffer_len];
     int bytecount;
@@ -89,8 +89,7 @@ void* socketHandler(void* lp){
         //goto FINISH;
     }
 
-    //printf("Bytes recividos %d\nMensaje recivido \"%s\"\nDe %s\n", bytecount, buffer,inet_ntoa(sadr.sin_addr));
-    //strcat(buffer, " SERVER ECHO");
+    printf("Bytes recividos %d\nMensaje recivido \"%s\"\nDe %s\n", bytecount, buffer,inet_ntoa(sadr.sin_addr));
 
     char* msg = (char*)malloc(strlen(buffer));
     for (int i = 0; i < strlen(buffer); ++i) {
@@ -102,16 +101,31 @@ void* socketHandler(void* lp){
         respuesta[j] = *(resp+j);
     }
 
+    char* rRep = (char*)malloc(respuesta_len+1* sizeof(char));
+    int x = 0;
+    int espcChars = 0;
+    while (*(resp+x)!='\0') {
+        if (!((*(resp+x) == '\n') || (*(resp+x) == '\t') || (*(resp+x) == ' '))) {
+            *(rRep+espcChars) = *(resp+x);
+            espcChars += 1;
+        }
+        x+=1;
+    }
+
+    //strcat(buffer, " SERVER ECHO");
+    strcat(rRep,"\n");
+
+
     free(msg);
 
-
-    if((bytecount = send(*csock, resp, strlen(resp), 0))== -1){
+    if((bytecount = send(*csock, rRep, strlen(rRep), 0))== -1){
         fprintf(stderr, "Error al responder data %d\n", errno);
         goto FINISH;
     }
 
+//    free(rRep);
 
-    printf("%s\n", resp);
+//    printf("%s\n", rRep);
     printf("Sent bytes %d\n", bytecount);
 
 

@@ -79,11 +79,11 @@ struct celda** setBoard(struct celda** board) {
 struct celda** setDots(struct celda** board) {
     for (int i = 0; i < ROW; ++i) {
         for (int j = 0; j < COL; ++j) {
-            if (!(board[i][j].available)) {
-                if ((i == 9 && (j == 8 || j == 9 || j == 10))||(i == 11 && j == 9)){
-                    board[i][j].dot = 0;
-                } else {
+            if ((board[i][j].available)) {
+                if (!((7 <= i && i <= 11) && (6 <= j && j <= 12))) {
                     board[i][j].dot = 1;
+                } else {
+                    board[i][j].dot = 0;
                 }
             } else {
                 board[i][j].dot = 0;
