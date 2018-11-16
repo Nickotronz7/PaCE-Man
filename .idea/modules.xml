@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/Java_Client.iml" filepath="$PROJECT_DIR$/Java_Client.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/PaCE man.iml" filepath="$PROJECT_DIR$/.idea/PaCE man.iml" />
+>>>>>>> branch 'master' of https://github.com/Nickotronz7/PaCE-Man.git
     </modules>
   </component>
 </project>
