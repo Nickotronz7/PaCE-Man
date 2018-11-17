@@ -5,9 +5,8 @@
 
 int main() {
 
-//    struct state game = game_core();
-
     server(8080);
 
     return 0;
+
 }

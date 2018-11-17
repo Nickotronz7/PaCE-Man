@@ -139,6 +139,7 @@ struct state game_core(){
     player1.row = 15;
     player1.col = 9;
     player1.vidas = 3;
+    board[15][9].dot = 0;
 
 /*
  * seteo de los aliens
@@ -167,12 +168,21 @@ struct state game_core(){
     return  actual_state;
 }
 
+/*
+ * Implementar el incrementar puntuacion y eliminar las bolitas y all of this shit xD
+ */
 void move_player(struct state* game, char dir) {
 
     switch (dir) {
         case 'u': {
             if ((*game).board[(*game).player1.row-1][(*game).player1.col].available) {
-                (*game).player1.row -= 1;
+                if ((*game).board[(*game).player1.row-1][(*game).player1.col].dot) {
+                    (*game).player1.row -= 1;
+                    (*game).board[(*game).player1.row][(*game).player1.col].dot = 0;
+                    (*game).score += 1;
+                } else {
+                    (*game).player1.row -= 1;
+                }
             } else {
                 printf("movimiento invalido\n");
             }
@@ -180,7 +190,13 @@ void move_player(struct state* game, char dir) {
         }
         case 'd': {
             if ((*game).board[(*game).player1.row+1][(*game).player1.col].available) {
-                (*game).player1.row += 1;
+                if ((*game).board[(*game).player1.row+1][(*game).player1.col].available) {
+                    (*game).player1.row += 1;
+                    (*game).board[(*game).player1.row][(*game).player1.col].available = 0;
+                    (*game).score += 1;
+                } else {
+                    (*game).player1.row += 1;
+                }
             } else {
                 printf("movimiento invalido\n");
             }
@@ -188,7 +204,13 @@ void move_player(struct state* game, char dir) {
         }
         case 'r': {
             if ((*game).board[(*game).player1.row][(*game).player1.col+1].available) {
-                (*game).player1.col += 1;
+                if ((*game).board[(*game).player1.row][(*game).player1.col+1].available) {
+                    (*game).player1.col += 1;
+                    (*game).board[(*game).player1.row][(*game).player1.col].available = 0;
+                    (*game).score += 1;
+                } else {
+                    (*game).player1.col += 1;
+                }
             } else {
                 printf("movimiento invalido\n");
             }
@@ -196,7 +218,13 @@ void move_player(struct state* game, char dir) {
         }
         case 'l': {
             if ((*game).board[(*game).player1.row][(*game).player1.col-1].available) {
-                (*game).player1.col -= 1;
+                if ((*game).board[(*game).player1.row][(*game).player1.col-1].available) {
+                    (*game).player1.col -= 1;
+                    (*game).board[(*game).player1.row][(*game).player1.col].available = 0;
+                    (*game).score += 1;
+                } else {
+                    (*game).player1.col -= 1;
+                }
             } else {
                 printf("movimiento invalido\n");
             }
