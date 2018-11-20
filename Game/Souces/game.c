@@ -172,7 +172,6 @@ struct state game_core(){
  * Implementar el incrementar puntuacion y eliminar las bolitas y all of this shit xD
  */
 void move_player(struct state* game, char dir) {
-
     switch (dir) {
         case 'u': {
             if ((*game).board[(*game).player1.row-1][(*game).player1.col].available) {
@@ -206,7 +205,7 @@ void move_player(struct state* game, char dir) {
             if ((*game).board[(*game).player1.row][(*game).player1.col+1].available) {
                 if ((*game).board[(*game).player1.row][(*game).player1.col+1].available) {
                     (*game).player1.col += 1;
-                    (*game).board[(*game).player1.row][(*game).player1.col].available = 0;
+                    (*game).board[(*game).player1.row][(*game).player1.col].dot = 0;
                     (*game).score += 1;
                 } else {
                     (*game).player1.col += 1;
@@ -220,7 +219,7 @@ void move_player(struct state* game, char dir) {
             if ((*game).board[(*game).player1.row][(*game).player1.col-1].available) {
                 if ((*game).board[(*game).player1.row][(*game).player1.col-1].available) {
                     (*game).player1.col -= 1;
-                    (*game).board[(*game).player1.row][(*game).player1.col].available = 0;
+                    (*game).board[(*game).player1.row][(*game).player1.col].dot = 0;
                     (*game).score += 1;
                 } else {
                     (*game).player1.col -= 1;
@@ -231,7 +230,7 @@ void move_player(struct state* game, char dir) {
             break;
         }
         default:
-            printf("no move done");
+            printf("no move done\n");
             break;
     }
 }

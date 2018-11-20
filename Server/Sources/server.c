@@ -7,6 +7,8 @@
 
 void* socketHandler(void*);
 struct sockaddr_in sadr;
+struct state game;
+
 
 void server(int host_port) {
     struct sockaddr_in my_addr;
@@ -147,25 +149,29 @@ char* analyze_msg(char* msg){
         return respuesta_STRING;
     }
 
-    if (strcmp(message_type, "player_move") == 0){
-        char* move = cJSON_GetObjectItem(root, "move")->valuestring;
-        update_player(&game, move);
+    else if (strcmp(message_type, "player_move") == 0){
+        char* move = cJSON_GetObjectItem(root, "dir")->valuestring;
+        update_player(&game, *move);
         respuesta = game_state(&game);
         respuesta_STRING = cJSON_Print(respuesta);
         return respuesta_STRING;
     }
 
-    if (strcmp(message_type, "begin_game") == 0){
+    else if (strcmp(message_type, "begin_game") == 0){
         game = game_core();
         respuesta = game_state(&game);
         respuesta_STRING = cJSON_Print(respuesta);
         return respuesta_STRING;
     }
 
-    if (strcmp(message_type, "watch_game") == 0){
+    else if (strcmp(message_type, "watch_game") == 0){
         update_game(&game);
         respuesta = game_state(&game);
         respuesta_STRING = cJSON_Print(respuesta);
         return respuesta_STRING;
+    }
+
+    else {
+        return "{\"WARNING_type\":\"FUERA DEL PROTOCOLO\"}";
     }
 }

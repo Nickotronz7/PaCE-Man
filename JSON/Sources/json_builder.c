@@ -10,10 +10,12 @@ cJSON* game_state(struct state* game){
     cJSON* player = game_player(&(game->player1));
     cJSON* aliens = game_aliens(game->fantasmas);
     cJSON* board = game_board(&(*game).board);
+    cJSON* data = game_data(game);
 
     cJSON_AddItemToObject(root, "board", board);
     cJSON_AddItemToObject(root, "player", player);
     cJSON_AddItemToObject(root, "aliens", aliens);
+    cJSON_AddItemToObject(root, "data", data);
 
     return  root;
 }
@@ -54,12 +56,12 @@ cJSON* game_board(struct celda*** board) {
             cJSON_AddItemToObject(nCelda, index,celda);
             cJSON_AddItemToArray(row, nCelda);
 
-            cJSON* available = cJSON_CreateNumber((*board)[i][j].available);
+//            cJSON* available = cJSON_CreateNumber((*board)[i][j].available);
             cJSON* dot = cJSON_CreateNumber((*board)[i][j].dot);
             cJSON* superDot = cJSON_CreateNumber((*board)[i][j].superDot);
             cJSON* fruta = cJSON_CreateNumber((*board)[i][j].fruta);
 
-            cJSON_AddItemToObject(celda, "available", available);
+//            cJSON_AddItemToObject(celda, "available", available);
             cJSON_AddItemToObject(celda, "dot", dot);
             cJSON_AddItemToObject(celda, "superDot", superDot);
             cJSON_AddItemToObject(celda, "fruta", fruta);
@@ -98,21 +100,13 @@ cJSON* game_aliens(struct alien* aliens){
     return root;
 }
 
-//cJSON* game_data(unsigned int* currentShots,unsigned int* currentBombs, unsigned int* currentAliens, int* score,
-//                 int* win){
-//    cJSON* root = cJSON_CreateObject();
-//
-//    cJSON* cShots = cJSON_CreateNumber(*currentShots);
-//    cJSON* cBombs = cJSON_CreateNumber(*currentBombs);
-//    cJSON* cAliens = cJSON_CreateNumber(*currentAliens);
-//    cJSON* points = cJSON_CreateNumber(*score);
-//    cJSON* cWin = cJSON_CreateNumber(*win);
-//
-//    cJSON_AddItemToObject(root,"currentShots", cShots);
-//    cJSON_AddItemToObject(root, "currenteBombs", cBombs);
-//    cJSON_AddItemToObject(root, "currentAliens", cAliens);
-//    cJSON_AddItemToObject(root, "score", points);
-//    cJSON_AddItemToObject(root, "win", cWin);
-//
-//    return root;
-//}
+cJSON* game_data(struct state* game) {
+    cJSON* root = cJSON_CreateObject();
+    cJSON* score = cJSON_CreateNumber((*game).score);
+    cJSON* win = cJSON_CreateNumber((*game).win);
+
+    cJSON_AddItemToObject(root, "score", score);
+    cJSON_AddItemToObject(root, "win_state?", win);
+
+    return root;
+}

@@ -12,6 +12,8 @@
 #define COL 19
 
 extern int enemigos;
+extern struct state game;
+
 
 int rowConfig[ROW][COL];
 
