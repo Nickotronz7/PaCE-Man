@@ -23,69 +23,43 @@ public class SimpleSocketClient
 {
 
     // call our constructor to start the program
-    public static void main(String[] args)
+
+    private Socket socket;
+    private String testServerName;
+    private Integer port;
+    public SimpleSocketClient(Integer pPort, String ipAddress)
     {
-        new SimpleSocketClient();
-    }
-
-    public SimpleSocketClient()
-    {
-        String testServerName = "localhost";
-        int port = 8080;
-        try
-        {
-            // open a socket
-            Socket socket = openSocket(testServerName, port);
-
-            // write-to, and read-from the socket.
-            // in this case just write a simple command to a web server.
-            String result = writeToAndReadFromSocket(socket, "{\"message_type\":\"begin_game\"}\0");
-            //String result = writeToAndReadFromSocket(socket, "GET /\0");
-
-            // print out the result we got back from the server
-            System.out.println(result);
-
-            // close the socket, and we're done
-            socket.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        testServerName= ipAddress;
+        port = pPort;
+       
     }
 
 
-    private String writeToAndReadFromSocket(Socket socket, String writeTo) throws Exception
-    {
-        try
-        {
-            // write text to the socket
+    public String writeToAndReadFromSocket(String writeTo) throws Exception{
+    	 
+             // open a socket
+         	socket = openSocket(testServerName, port);
+
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             bufferedWriter.write(writeTo);
             bufferedWriter.flush();
 
             // read text from the socket
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            StringBuilder sb = new StringBuilder();
             String str = bufferedReader.readLine();
 
             // close the reader, and return the results as a String
             bufferedReader.close();
             return str;
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-            throw e;
-        }
     }
 
+    
     /**
      * Open a socket connection to the given server on the given port.
      * This method currently sets the socket timeout value to 10 seconds.
      * (A second version of this method could allow the user to specify this timeout.)
      */
-    private Socket openSocket(String server, int port) throws Exception
+    private Socket openSocket(String server, Integer port) throws Exception
     {
         Socket socket;
 
@@ -99,7 +73,7 @@ public class SimpleSocketClient
             socket = new Socket();
 
             // this method will block no more than timeout ms.
-            int timeoutInMs = 10*1000;   // 10 seconds
+            Integer timeoutInMs = 10*1000;   // 10 seconds
             socket.connect(socketAddress, timeoutInMs);
 
             return socket;
