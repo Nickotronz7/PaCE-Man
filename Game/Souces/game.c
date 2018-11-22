@@ -3,7 +3,10 @@
 //
 
 #include "../Headers/game.h"
+
+#include "../../Pathing/voraz.h"
 int enemigos = 4;
+
 
 int rowConfig[ROW][COL]  = {
 /* 0  */        {19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -247,6 +250,10 @@ void move_ghost(struct state* game) {
 //    printf("fantasma movido\n");
 }
 
+
+void move_ghost(struct state* game) {
+    cycle();
+    printf("fantasma movido\n");
 
 void update_ghost(struct state* game, int row, int col) {
     for (int i = 0; i < enemigos; ++i) {
