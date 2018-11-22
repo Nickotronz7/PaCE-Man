@@ -99,9 +99,6 @@ void* socketHandler(void* lp){
     }
 
     char* resp = analyze_msg(msg);
-    for (int j = 0; j < respuesta_len; ++j) {
-        respuesta[j] = *(resp+j);
-    }
 
     char* rRep = (char*)malloc(respuesta_len+1* sizeof(char));
     int x = 0;
@@ -114,7 +111,6 @@ void* socketHandler(void* lp){
         x+=1;
     }
 
-    //strcat(buffer, " SERVER ECHO");
     strcat(rRep,"\n");
 
 
@@ -143,7 +139,6 @@ char* analyze_msg(char* msg){
     char* message_type = cJSON_GetObjectItem(root, "message_type")->valuestring;
 
     if (strcmp(message_type, "get_update") == 0){
-        update_game(&game);
         respuesta = game_state(&game);
         respuesta_STRING = cJSON_Print(respuesta);
         return respuesta_STRING;
@@ -165,13 +160,46 @@ char* analyze_msg(char* msg){
     }
 
     else if (strcmp(message_type, "watch_game") == 0){
-        update_game(&game);
         respuesta = game_state(&game);
         respuesta_STRING = cJSON_Print(respuesta);
         return respuesta_STRING;
     }
 
+    else if (strcmp(message_type, "1") == 0) {
+        int row, col;
+        row = cJSON_GetObjectItem(root, "row")->valueint;
+        col = cJSON_GetObjectItem(root, "col")->valueint;
+        update_ghost(&game, row, col);
+        return "Done!";
+    }
+
+    else if (strcmp(message_type, "2") == 0) {
+        int row, col;
+        row = cJSON_GetObjectItem(root, "row")->valueint;
+        col = cJSON_GetObjectItem(root, "col")->valueint;
+        crearPastilla(&game, row, col);
+        return "Done!";
+    }
+
+    else if (strcmp(message_type, "3") == 0) {
+        int row, col;
+        row = cJSON_GetObjectItem(root, "row")->valueint;
+        col = cJSON_GetObjectItem(root, "col")->valueint;
+        crearFruta(&game, row, col);
+        return "Done!";
+    }
+
+    else if (strcmp(message_type, "4") == 0) {
+        int speed;
+        speed = cJSON_GetObjectItem(root, "speed")->valueint;
+        update_ghostSpeed(&game, speed);
+        return "Done!";
+    }
+
     else {
-        return "{\"WARNING_type\":\"FUERA DEL PROTOCOLO\"}";
+        cJSON* rRoot = cJSON_CreateObject();
+        cJSON* value = cJSON_CreateString("FUERA DEL PROTOCOLO");
+        cJSON_AddItemToObject(rRoot, "WARNING!", value);
+        return cJSON_Print(rRoot);
     }
 }

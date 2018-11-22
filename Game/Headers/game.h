@@ -38,6 +38,13 @@ void update_game(struct state* game);
 
 void update_player(struct state* game, char dir);
 
+void update_ghost(struct state* game, int row, int col);
+
+void crearPastilla(struct state* game, int row, int col);
+
+void crearFruta(struct state* game, int row, int col);
+
+void update_ghostSpeed(struct state* game, int speed);
 
 struct player{
     int row, col;
@@ -54,8 +61,8 @@ struct alien{
 struct celda{
     int available;  // 0 = no, 1 = si;
     int dot;        // 0 = no, 1 = si;
-    int superDot;   // 0 = no, 1 = si
-    int fruta;      //
+    int superDot;   // 0 = no, 1 = si;
+    int fruta;      // 0 = no, 1 = si;
 };
 
 struct state{
