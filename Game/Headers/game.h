@@ -34,8 +34,6 @@ void move_player(struct state* game, char dir);
 
 void move_ghost(struct state* game);
 
-void update_game(struct state* game);
-
 void update_player(struct state* game, char dir);
 
 void update_ghost(struct state* game, int row, int col);

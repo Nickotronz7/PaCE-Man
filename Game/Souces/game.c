@@ -243,10 +243,6 @@ void update_player(struct state* game, char dir) {
      */
 }
 
-void update_game(struct state* game) {
-    move_ghost(game);
-}
-
 void move_ghost(struct state* game) {
     printf("fantasma movido\n");
 }
