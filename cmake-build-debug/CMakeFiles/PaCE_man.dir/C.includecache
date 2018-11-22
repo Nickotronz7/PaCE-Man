@@ -6,33 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 stdio.h
 -
 stdlib.h
 -
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Souces/game.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Souces/game.c
 ../Headers/game.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 ../../Pathing/voraz.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Pathing/voraz.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Pathing/voraz.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON.h
 stddef.h
 -
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON_Utils.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON_Utils.h
 cJSON.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/json_builder.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/json_builder.h
 cJSON.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON.h
 ../../Game/Headers/game.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Sources/cJSON.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Sources/cJSON.c
 string.h
 -
 stdio.h
@@ -50,9 +50,9 @@ ctype.h
 locale.h
 -
 ../Headers/cJSON.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Sources/cJSON_Utils.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Sources/cJSON_Utils.c
 ctype.h
 -
 string.h
@@ -64,15 +64,15 @@ stdio.h
 limits.h
 -
 ../Headers/cJSON_Utils.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON_Utils.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON_Utils.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Sources/json_builder.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Sources/json_builder.c
 ../Headers/json_builder.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/json_builder.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/json_builder.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Pathing/voraz.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/Pathing/voraz.c
 voraz.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Pathing/voraz.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Pathing/voraz.h
 stdio.h
 -
 math.h
@@ -80,13 +80,13 @@ math.h
 stdbool.h
 -
 ../Game/Headers/game.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Pathing/voraz.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Pathing/voraz.h
 stdbool.h
 -
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Server/Headers/server.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Server/Headers/server.h
 fcntl.h
 -
 string.h
@@ -108,25 +108,25 @@ malloc.h
 stdbool.h
 -
 ../../JSON/Headers/cJSON.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON.h
 ../../JSON/Headers/cJSON_Utils.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/cJSON_Utils.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/cJSON_Utils.h
 ../../Game/Headers/game.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/Server/Sources/server.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/Server/Sources/server.c
 ../Headers/server.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Server/Headers/server.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Server/Headers/server.h
 ../../JSON/Headers/json_builder.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/json_builder.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/json_builder.h
 
-/home/nautilus/Desktop/Repos/PaCE-Man/main.c
+/home/nicko/Documents/CLionProjects/PaCE-Man/main.c
 Game/Headers/game.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Game/Headers/game.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Game/Headers/game.h
 Server/Headers/server.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Server/Headers/server.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Server/Headers/server.h
 JSON/Headers/json_builder.h
-/home/nautilus/Desktop/Repos/PaCE-Man/JSON/Headers/json_builder.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/JSON/Headers/json_builder.h
 Pathing/voraz.h
-/home/nautilus/Desktop/Repos/PaCE-Man/Pathing/voraz.h
+/home/nicko/Documents/CLionProjects/PaCE-Man/Pathing/voraz.h
 

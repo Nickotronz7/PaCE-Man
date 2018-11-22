@@ -32,7 +32,7 @@ struct state game_core();
 
 void move_player(struct state* game, char dir);
 
-void move_ghost(struct state* game);
+void move_ghost();
 
 void update_player(struct state* game, char dir);
 

@@ -3,8 +3,8 @@
 //
 
 #include "../Headers/game.h"
-
 #include "../../Pathing/voraz.h"
+
 int enemigos = 4;
 
 
@@ -246,14 +246,9 @@ void update_player(struct state* game, char dir) {
      */
 }
 
-void move_ghost(struct state* game) {
-//    printf("fantasma movido\n");
-}
-
-
-void move_ghost(struct state* game) {
+void move_ghost() {
     cycle();
-    printf("fantasma movido\n");
+}
 
 void update_ghost(struct state* game, int row, int col) {
     for (int i = 0; i < enemigos; ++i) {
