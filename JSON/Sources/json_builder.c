@@ -10,12 +10,12 @@ cJSON* game_state(struct state* game){
     cJSON* player = game_player(&(game->player1));
     cJSON* aliens = game_aliens(game->fantasmas);
     cJSON* board = game_board(&(*game).board);
-    cJSON* data = game_data(game);
+    cJSON* score = cJSON_CreateNumber((*game).score);
 
     cJSON_AddItemToObject(root, "board", board);
     cJSON_AddItemToObject(root, "player", player);
     cJSON_AddItemToObject(root, "aliens", aliens);
-    cJSON_AddItemToObject(root, "data", data);
+    cJSON_AddItemToObject(root, "score", score);
 
     return  root;
 }
@@ -89,13 +89,3 @@ cJSON* game_aliens(struct alien* aliens){
     return root;
 }
 
-cJSON* game_data(struct state* game) {
-    cJSON* root = cJSON_CreateObject();
-    cJSON* score = cJSON_CreateNumber((*game).score);
-    cJSON* win = cJSON_CreateNumber((*game).win);
-
-    cJSON_AddItemToObject(root, "score", score);
-    cJSON_AddItemToObject(root, "win_state?", win);
-
-    return root;
-}

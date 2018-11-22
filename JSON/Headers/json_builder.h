@@ -17,8 +17,5 @@ cJSON* game_aliens(struct alien* aliens);
 
 cJSON* game_board(struct celda*** board);
 
-cJSON* game_data(struct state* game);
-//cJSON* game_data(unsigned int* currentShots,unsigned int* currentBombs, unsigned int* currentAliens, int* score,
-//                int* win);
 
 #endif //TAREA_3_JSON_BUILDER_H
