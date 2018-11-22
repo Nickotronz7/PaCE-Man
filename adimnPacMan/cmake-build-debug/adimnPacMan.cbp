@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="adimnPacMan"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="adimnPacMan">
+				<Option output="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/adimnPacMan" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 adimnPacMan"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="adimnPacMan/fast">
+				<Option output="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/adimnPacMan" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 adimnPacMan/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nicko/Documents/CLionProjects/adimnPacMan/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON.c">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON.h">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON_Utils.c">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON_Utils.h">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/client.c">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/client.h">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/json_builder.c">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/json_builder.h">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/main.c">
+			<Option target="adimnPacMan"/>
+		</Unit>
+		<Unit filename="/home/nicko/Documents/CLionProjects/adimnPacMan/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

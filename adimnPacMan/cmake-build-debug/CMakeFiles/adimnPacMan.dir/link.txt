@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/adimnPacMan.dir/main.c.o CMakeFiles/adimnPacMan.dir/client.c.o CMakeFiles/adimnPacMan.dir/cJSON.c.o CMakeFiles/adimnPacMan.dir/cJSON_Utils.c.o CMakeFiles/adimnPacMan.dir/json_builder.c.o  -o adimnPacMan 

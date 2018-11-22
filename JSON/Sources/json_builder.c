@@ -10,12 +10,12 @@ cJSON* game_state(struct state* game){
     cJSON* player = game_player(&(game->player1));
     cJSON* aliens = game_aliens(game->fantasmas);
     cJSON* board = game_board(&(*game).board);
-    cJSON* data = game_data(game);
+    cJSON* score = cJSON_CreateNumber((*game).score);
 
     cJSON_AddItemToObject(root, "board", board);
     cJSON_AddItemToObject(root, "player", player);
     cJSON_AddItemToObject(root, "aliens", aliens);
-    cJSON_AddItemToObject(root, "data", data);
+    cJSON_AddItemToObject(root, "score", score);
 
     return  root;
 }
@@ -39,40 +39,29 @@ cJSON* game_player(struct player* player1){
 cJSON* game_board(struct celda*** board) {
     cJSON* root = cJSON_CreateObject();
     cJSON* jBoard = cJSON_CreateArray();
-    cJSON* row = NULL;
-    cJSON* celda = NULL;
-    cJSON* nRow = NULL;
-    cJSON* nCelda = NULL;
+
     cJSON_AddItemToObject(root, "rows", jBoard);
 
     for (int i = 0; i < ROW; ++i) {
-        row = cJSON_CreateArray();
-        nRow = cJSON_CreateObject();
-        for (int j = 0; j < COL; ++j) {
-            char* index = malloc(sizeof(char));
-            sprintf(index,"%d",j);
-            celda = cJSON_CreateObject();
-            nCelda = cJSON_CreateObject();
-            cJSON_AddItemToObject(nCelda, index,celda);
-            cJSON_AddItemToArray(row, nCelda);
+        cJSON* row = cJSON_CreateArray();
 
-//            cJSON* available = cJSON_CreateNumber((*board)[i][j].available);
+        for (int j = 0; j < COL; ++j) {
+            cJSON* celda = cJSON_CreateObject();
+            cJSON_AddItemToArray(row, celda);
+
             cJSON* dot = cJSON_CreateNumber((*board)[i][j].dot);
             cJSON* superDot = cJSON_CreateNumber((*board)[i][j].superDot);
             cJSON* fruta = cJSON_CreateNumber((*board)[i][j].fruta);
 
-//            cJSON_AddItemToObject(celda, "available", available);
+
             cJSON_AddItemToObject(celda, "dot", dot);
             cJSON_AddItemToObject(celda, "superDot", superDot);
             cJSON_AddItemToObject(celda, "fruta", fruta);
-            free(index);
         }
-        char* index = malloc(sizeof(char));
-        sprintf(index,"%d",i);
-        cJSON_AddItemToObject(nRow, index, row);
-        cJSON_AddItemToArray(jBoard,nRow);
-        free(index);
+
+        cJSON_AddItemToArray(jBoard, row);
     }
+
     return root;
 }
 
@@ -100,13 +89,3 @@ cJSON* game_aliens(struct alien* aliens){
     return root;
 }
 
-cJSON* game_data(struct state* game) {
-    cJSON* root = cJSON_CreateObject();
-    cJSON* score = cJSON_CreateNumber((*game).score);
-    cJSON* win = cJSON_CreateNumber((*game).win);
-
-    cJSON_AddItemToObject(root, "score", score);
-    cJSON_AddItemToObject(root, "win_state?", win);
-
-    return root;
-}

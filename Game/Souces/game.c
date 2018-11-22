@@ -3,9 +3,10 @@
 //
 
 #include "../Headers/game.h"
-#include "../../Pathing/voraz.h"
 
-int enemigos = 3;
+#include "../../Pathing/voraz.h"
+int enemigos = 4;
+
 
 int rowConfig[ROW][COL]  = {
 /* 0  */        {19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -151,7 +152,7 @@ struct state game_core(){
         aliens[j].row = 9;
         aliens[j].col = 8 + j;
         aliens[j].state = 0;
-        aliens[j].vivo = 1;
+        aliens[j].vivo = 0;
         aliens[j].velocidad = 1;
 
     }
@@ -245,11 +246,39 @@ void update_player(struct state* game, char dir) {
      */
 }
 
-void update_game(struct state* game) {
-    move_ghost(game);
+void move_ghost(struct state* game) {
+//    printf("fantasma movido\n");
 }
+
 
 void move_ghost(struct state* game) {
     cycle();
     printf("fantasma movido\n");
+
+void update_ghost(struct state* game, int row, int col) {
+    for (int i = 0; i < enemigos; ++i) {
+        if (!((*game).fantasmas[i].vivo)) {
+            (*game).fantasmas[i].vivo = 1;
+            (*game).fantasmas[i].row = row;
+            (*game).fantasmas[i].col = col;
+            break;
+        }
+    }
+}
+
+void crearPastilla(struct state* game, int row, int col) {
+    if (!((*game).board[row][col].dot || (*game).board[row][col].fruta) && !((*game).board[row][col].superDot))
+        (*game).board[row][col].superDot = 1;
+
+}
+
+void crearFruta(struct state* game, int row, int col) {
+    if (!((*game).board[row][col].dot || (*game).board[row][col].superDot) && !((*game).board[row][col].fruta))
+        (*game).board[row][col].fruta = 1;
+}
+
+void update_ghostSpeed(struct state* game, int speed) {
+    for (int i = 0; i < enemigos; ++i) {
+        (*game).fantasmas[i].velocidad = speed;
+    }
 }

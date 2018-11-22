@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON.h
+stddef.h
+-
+
+/home/nicko/Documents/CLionProjects/adimnPacMan/client.h
+fcntl.h
+-
+string.h
+-
+stdlib.h
+-
+errno.h
+-
+stdio.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+malloc.h
+-
+
+/home/nicko/Documents/CLionProjects/adimnPacMan/json_builder.h
+cJSON.h
+/home/nicko/Documents/CLionProjects/adimnPacMan/cJSON.h
+
+/home/nicko/Documents/CLionProjects/adimnPacMan/main.c
+stdio.h
+-
+client.h
+/home/nicko/Documents/CLionProjects/adimnPacMan/client.h
+json_builder.h
+/home/nicko/Documents/CLionProjects/adimnPacMan/json_builder.h
+
